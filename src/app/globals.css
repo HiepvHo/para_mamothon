@@ -1,0 +1,43 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #040400; /* Màu chữ mặc định */
+  --background: #ffffff; /* Màu nền mặc định */
+  --accent: #d1bfbf; /* Màu chữ chú thích */
+  --font-sans: "GeistSans", sans-serif;
+  --font-mono: "GeistMono", monospace;
+}
+
+.text-foreground {
+  color: var(--foreground); /* Đặt trực tiếp màu chữ */
+}
+
+.bg-background {
+  color: var(--background); /* Đặt trực tiếp màu nnền */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #040400; /* Màu chữ mặc định */
+    --background: #ffffff; /* Màu nền mặc định */
+    --accent: #d1bfbf; /* Màu chữ chú thích */
+  }
+}
+
+/* Thay vì @apply text-foreground, áp dụng trực tiếp */
+@layer base {
+  body {
+    /* @apply bg-background; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+  }
+}
