@@ -3,6 +3,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{html,js,jsx,css,ts,tsx}', 
   ],
   theme: {
     extend: {
@@ -16,6 +17,11 @@ module.exports = {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
+      gradientColorStops: {
+        'gradient-start': 'var(--gradient-start)',
+        'gradient-middle': 'var(--gradient-middle)',
+        'gradient-end': 'var(--gradient-end)',
+      }
     },
   },
   plugins: [],

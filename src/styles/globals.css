@@ -1,0 +1,251 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import "tailwindcss";
+@import "tailwindcss/forms"; */
+
+:root {
+  --gradient-start: #4f46e5; /* Indigo */
+  --gradient-middle: #8b5cf6; /* Purple */
+  --gradient-end: #ec4899; /* Pink */
+  --foreground: #040400; /* Màu chữ mặc định */
+  /* --background: #ffffff; Màu nền mặc định */
+  --accent: #d1bfbf; /* Màu chữ chú thích */
+  --font-sans: "GeistSans", sans-serif;
+  --font-mono: "GeistMono", monospace;
+}
+
+.text-foreground {
+  color: var(--foreground); /* Đặt trực tiếp màu chữ */
+}
+
+.bg-background {
+  background-color: var(--background); /* Đặt trực tiếp màu nền */
+}
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end)
+  );
+  color: var(--foreground);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 10rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gradient-start: #312e81; /* Darker Indigo */
+    --gradient-middle: #5b21b6; /* Darker Purple */
+    --gradient-end: #831843; /* Darker Pink */
+    --foreground: #ffffff; /* Màu chữ cho theme tối */
+    --background: #040400; /* Màu nền cho theme tối */
+    --accent: #d1bfbf; /* Màu chữ chú thích */
+  }
+}
+
+/* Thay vì @apply text-foreground, áp dụng trực tiếp */
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, sans-serif;
+  }
+  /* .gradient-bg {
+    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600;
+  }
+
+  .gradient-hover {
+    @apply hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300;
+  } */
+}
+
+@layer components {
+  .gradient-hover {
+    transition: all 0.3s ease;
+  }
+
+  .gradient-hover:hover {
+    --gradient-start: #4338ca; /* darker indigo */
+    --gradient-middle: #7e22ce; /* darker purple */
+    --gradient-end: #be185d; /* darker pink */
+    /* transform: translateY(-1px); */
+  }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    overflow-y: auto;
+    /* background: rgba(255, 255, 255, 0.5); */
+    /* backdrop-filter: blur(7px); */
+  }
+
+  .modal-content {
+    position: relative;
+    /* background-color: white; */
+    border-radius: 1rem;
+    /* box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); */
+    padding: 1.5rem;
+    max-width: 28rem;
+    margin: 4rem auto;
+  }
+
+  .avatar-container {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+
+  .avatar-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    padding: 4px;
+    object-fit: cover;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .status-badge {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 16px;
+    background-color: #22c55e;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 500;
+  }
+
+  .wallet-button {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    font-weight: 600;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+
+  .wallet-button:hover {
+    /* transform: translateY(0px); */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 30px 0 rgba(31, 38, 135, 0.25);
+  }
+
+  .wallet-button:active {
+    transform: translateY(0);
+  }
+
+  /* Styling cho modal */
+  .para-modal-container {
+    /* position: relative; */
+    border-radius: 24px;
+    /* margin-top: 100%; */
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%; /* Equivalent to max-w-2xl */
+    padding: 0 1.5rem;
+    /* box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); */
+  }
+
+  .para-modal-wrapper {
+    position: relative;
+    /* height: 100%; */
+    /* margin-top: 100%; */
+    /* background-color: #ffffff;
+    border-radius: 24px; */
+    min-height: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .para-modal-bg {
+    position: relative;
+    /* background: white; */
+    /* border-radius: 24px; */
+    padding: 1.5rem;
+    width: calc(100% + 3rem); /* Slightly larger than content */
+    max-width: 600px; /* Larger than container */
+    margin: 0 auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .wallet-info {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .wallet-info:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+.glass-card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Styling cho button */
+/* button {
+  @apply px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300;
+} */
+
+/* button:hover {
+  @apply bg-blue-600;
+} */
