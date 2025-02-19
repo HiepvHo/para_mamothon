@@ -1,8 +1,8 @@
 module.exports = {
   content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx,css}', // Đảm bảo quét các tệp CSS
-    './pages/**/*.{js,ts,jsx,tsx}', // Nếu bạn có các trang trong thư mục `pages`
-    './components/**/*.{js,ts,jsx,tsx}', // Nếu có thư mục components
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {

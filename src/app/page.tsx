@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import Para, { OAuthMethod, Environment } from "@getpara/web-sdk";
 import { ParaModal } from "@getpara/react-sdk";
 
+
 // Lấy API_KEY từ biến môi trường
 const API_KEY = process.env.NEXT_PUBLIC_PARA_API_KEY;
+const test_win = typeof window !== 'undefined' ? window.location.origin : '';
 
 const para = new Para(Environment.BETA, API_KEY);
 
@@ -23,50 +25,48 @@ export default function HomePage() {
     };
 
     return (
-        <div className="p-6 text-center">
-            <h1 className="text-3xl font-bold mb-4">Welcome to Para Mini-App</h1>
-
-            {/* Nút tạo ví
-            <button
-                type="button"
-                className="px-4 py-2 bg-blue-600 text-white rounded"
-                onClick={createWallet}
-            >
-                Create Wallet
-            </button> */}
-
-            {/* Hiển thị thông tin ví */}
-            {wallet && (
-                <div>
-                    <h3>Your Wallet ID: {wallet}</h3>
+        <div className="flex justify-center items-center min-h-screen bg-gray-100">
+            <div className="text-center p-8 bg-white rounded-lg shadow-lg w-96">
+                {/* User Avatar */}
+                <div className="mb-6">
+                    <img
+                        src="https://via.placeholder.com/150" // Replace with your image URL
+                        alt="User Avatar"
+                        className="mx-auto mb-4 rounded-full border-4 border-gray-300 p-2"
+                    />
                 </div>
-            )}
 
-            {/* Nút mở Para Wallet Modal */}
-            <button
-                type="button"
-                className="px-4 py-2 bg-green-600 text-white rounded mt-4"
-                onClick={() => setIsModalOpen(true)}
-            >
-                Open Para Wallet
-            </button>
+                {/* Header and Description */}
+                <h1 className="text-2xl font-semibold text-gray-700">Para Hello World</h1>
+                <p className="text-gray-600 mt-4">Connect your wallet to start your journey!</p>
+                {/* Action Buttons */}
 
-            {/* Para Wallet Modal */}
-            <ParaModal
-                para={para}
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                logo=""
-                theme={{
-                    foregroundColor: "#040400",
-                    backgroundColor: "#ffffff",
-                    accentColor: "#d1bfbf"
-                }}
-                oAuthMethods={[OAuthMethod.GOOGLE, OAuthMethod.TWITTER, OAuthMethod.DISCORD, OAuthMethod.TELEGRAM]}
-                authLayout={["AUTH:FULL", "EXTERNAL:FULL"]}
-                recoverySecretStepEnabled={true}
-                onRampTestMode={true}
-            />
+                <button
+                    type="button"
+                    className="mt-6 py-2 px-8 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300"
+                    onClick={() => setIsModalOpen(true)}
+                >
+                    Open Para Wallet
+                </button>
+
+
+                {/* Para Wallet Modal */}
+                <ParaModal
+                    para={para}
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    logo="" // You can add a logo here if needed
+                    theme={{
+                        foregroundColor: "#ffffff",
+                        backgroundColor: "#ffffff",
+                        accentColor: "#d1bfbf",
+                    }}
+                    oAuthMethods={[OAuthMethod.GOOGLE, OAuthMethod.TWITTER, OAuthMethod.DISCORD, OAuthMethod.TELEGRAM]}
+                    authLayout={["AUTH:FULL", "EXTERNAL:FULL"]}
+                    recoverySecretStepEnabled={true}
+                    onRampTestMode={true}
+                />
+            </div>
         </div>
     );
 }
