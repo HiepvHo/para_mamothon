@@ -2,13 +2,14 @@
 import type { Metadata } from "next";
 // import "./globals.css";
 import "../styles/globals.css";
-
+// import { WalletProvider } from "../contexts/WalletContext";
 // import "./css/style.css"
 
 export const metadata: Metadata = {
   title: "Para Mini-App",
   description: "A wallet management application",
 };
+
 
 export default function RootLayout({
   children,

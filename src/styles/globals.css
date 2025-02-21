@@ -120,7 +120,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     padding: 4px 16px;
-    background-color: #22c55e;
+    background-color: rgb(197, 34, 34);
     border-radius: 9999px;
     font-size: 0.75rem;
     color: white;

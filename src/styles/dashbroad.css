@@ -1,0 +1,308 @@
+/* Body style */
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end)
+  );
+  color: var(--foreground);
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Gradient colors */
+:root {
+  --gradient-start: #4f46e5; /* Indigo */
+  --gradient-middle: #8b5cf6; /* Purple */
+  --gradient-end: #ec4899; /* Pink */
+  --foreground: #ffffff; /* Text color */
+  --font-sans: "GeistSans", sans-serif; /* Font for text */
+}
+
+/* Dashboard container */
+.dashboard-container {
+  min-height: 50vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Avatar positioning fixed at top left (header) */
+.avatar-container {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1000;
+}
+
+.avatar-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.status-badge {
+  position: absolute;
+  top: 5rem;
+  left: 0.3rem;
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Wallet information center */
+.wallet-info-container {
+  /* margin-top: rem; Space for fixed avatar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  padding: 1rem;
+}
+
+.container_taskpage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+}
+
+.glass-card-inner {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.font_taskpage {
+  font-size: 14px;
+}
+
+/* Bottom navigation */
+.bottom-navbar {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
+  bottom: 0;
+  left: 0.05rem;
+  right: 1rem;
+  width: 100%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  padding-right: 1rem;
+  /* padding-left: 1rem; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Cho phép các button xuống dòng khi không đủ không gian */
+}
+
+.navbar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+  background-color: rgb(61, 61, 61);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1; /* Adjust flex to ensure buttons fit */
+  min-width: 80px; /* Set a minimum width */
+  margin: 5px; /* Spacing between buttons */
+  text-align: center;
+}
+
+.navbar-button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.button-icon {
+  margin-right: 8px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 2rem;
+}
+
+/* Task Description Styling */
+.task-description p {
+  margin: 0;
+  color: #fff;
+}
+
+/* Task Button Styling */
+.task-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.task-button:hover {
+  transform: scale(1.05);
+}
+
+.task-button:focus {
+  outline: none;
+}
+
+/* Button Color for "Go" */
+.task-button.bg-orange-500 {
+  background-color: #ff7f32; /* Orange color */
+}
+
+/* Button Color for "Claimed" */
+.task-button.bg-gray-400 {
+  background-color: #9e9e9e; /* Gray color */
+}
+
+/* Container Styling */
+.table-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+/* Table Styling */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header Styling */
+.styled-table thead {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.styled-table th {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/* Table Body Styling */
+.styled-table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.styled-table td {
+  padding: 1rem;
+  border-top: 1px solid #eaeaea;
+  color: black;
+}
+
+/* First Column (Rank) Styling */
+.styled-table td:first-child {
+  font-weight: 600;
+  color: black;
+}
+
+/* Truncate the wallet address */
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --gradient-start: #312e81;
+    --gradient-middle: #5b21b6;
+    --gradient-end: #831843;
+  }
+}
+
+@media (max-width: 600px) {
+  .avatar-image {
+    width: 48px;
+    height: 48px;
+  }
+
+  .status-badge {
+    font-size: 0.6rem;
+    left: 0;
+    top: 4rem;
+  }
+  .navbar-button span {
+    display: none;
+  }
+
+  .button-icon {
+    font-size: 20px;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 0.8rem;
+  }
+  .styled-table th {
+    font-size: 0.9rem;
+  }
+
+  .styled-table td:nth-child(2) {
+    max-width: 120px; /* Set the maximum width for the wallet address on small screens */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add the ellipsis for overflow text */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+}
